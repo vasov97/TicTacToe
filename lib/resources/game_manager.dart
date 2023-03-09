@@ -11,7 +11,7 @@ class GameManager {
 
     String winner = '';
     List<String> boardElements = roomDataProvider.displayElements;
-    //check rows
+    
     for (int i = 0; i < boardElements.length; i+=3) {
       if (boardElements[i] == boardElements[i + 1] &&
           boardElements[i] == boardElements[i + 2] &&
@@ -20,7 +20,7 @@ class GameManager {
           }
     }
 
-    //check columns
+  
     for (int i = 0; i < 3; i++) {
       if (boardElements[i] == boardElements[i + 3] &&
           boardElements[i] == boardElements[i + 6] &&

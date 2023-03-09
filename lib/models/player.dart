@@ -1,4 +1,3 @@
-import 'package:tic_tac_toe/resources/game_manager.dart';
 
 class Player {
   final String nickname;

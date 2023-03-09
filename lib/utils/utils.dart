@@ -22,8 +22,6 @@ void showGameDialog(BuildContext context, String text) {
               onPressed: () {
                 Navigator.pop(context);
                 GameManager().clearBoard(context);
-                //Navigator.pop(context);
-                
               },
               child: const Text(
                 'Play Again',

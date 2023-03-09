@@ -10,8 +10,9 @@ class Scoreboard extends StatelessWidget {
   Widget build(BuildContext context) {
     final roomDataProvider = Provider.of<RoomData>(context);
     int player1Points = roomDataProvider.player1.points.round();
-    player1Points=(player1Points/2).round();
+   // player1Points=(player1Points/2).round();
     int player2Points = roomDataProvider.player2.points.round();
+    print(player1Points);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

@@ -26,7 +26,6 @@ class _GameScreenState extends State<GameScreen> {
     _socketManager.updatePlayersStateListener(context);
     _socketManager.pointIncreaseListener(context);
     _socketManager.endGameListener(context);
-   // _socketManager.winsIncreaseListener(context);
   }
 
   @override
@@ -48,7 +47,6 @@ class _GameScreenState extends State<GameScreen> {
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                       )),
-                 
                 ],
               ),
             ),

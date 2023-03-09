@@ -10,8 +10,6 @@ const Room = require('./models/room.js');
 var io = require('socket.io')(server);
 
 let random = Math.floor(Math.random*2);
-//middleware
-//client middle server
 app.use(express.json);
 
 const mongoDB = "mongodb+srv://vasovmail:test123@cluster0.oamblmw.mongodb.net/?retryWrites=true&w=majority";
@@ -56,8 +54,8 @@ io.on("connection",(socket)=>{
              let player ={
               nickname,
               socketID:socket.id,
-              playerType:random==1?'O':'X',
-              //stavi na random player da se odabere
+              playerType:random==0?'O':'X',
+              
              }
              socket.join(roomId);
              room.players.push(player);
@@ -103,6 +101,7 @@ io.on("connection",(socket)=>{
       let room = await Room.findById(roomId);
       let player = room.players.find((player)=>player.socketID==winnerSocketId);
       player.points=player.points+1;
+      console.log(player.points);
       room=await room.save();
 
       if(player.points>=room.maxRounds){
@@ -110,6 +109,7 @@ io.on("connection",(socket)=>{
         
       }
       else{
+        player.points/=2;
         io.to(roomId).emit('pointIncrease',player);
       }
      }catch(e){

@@ -98,7 +98,6 @@ class SocketManager{
         data['choice'],
       );
       roomDataProvider.updateRoomData(data['room']);
-      // check winnner
       GameManager().checkWinner(context, _socketClient);
     });
   }
@@ -106,7 +105,7 @@ class SocketManager{
   void pointIncreaseListener(BuildContext context) {
     _socketClient.on('pointIncrease', (playerData) {
       var roomDataProvider =
-          Provider.of<RoomData>(context, listen: false);
+          Provider.of<RoomData>(context,listen: false);
       if (playerData['socketID'] == roomDataProvider.player1.socketID) {
         roomDataProvider.updatePlayer1(playerData);
       } else {
